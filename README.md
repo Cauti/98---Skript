@@ -5,3 +5,7 @@ Dies ist ein Leitprogramm für das Unterrichtsfach Technische Informatik in Klas
 Schülerinnen und Schüler nutzen dieses Skript um sich den Unterrichtsstoff zu erarbeiten und Aufgaben zu lösen.
 Dies können sie in Einzel- Partner- oder Gruppenarbeit erledigen.
 Indiviuell können Fragen und Anmerkungen mit der Lehrperson besprochen werden.
+
+Das Skript wurde mit LaTeX gesetzt.
+
+Die fertig erzeugte PDF ist TI9.pdf.
