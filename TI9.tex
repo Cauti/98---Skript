@@ -1,0 +1,54 @@
+% Author: J. Süpke
+% ASGSpez
+
+
+\documentclass[ a4paper, 
+				13pt,
+				headsepline, 
+				footsepline, 
+				%twoside, % zweiseitig
+				openany % Damit neue Kapitel auf jeder Seite beginnen
+]{scrbook}
+
+\usepackage{Styles}
+
+
+%----------------------------------------------------------------------------------------
+%	BLANK DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\parindent 0pt
+
+\pagestyle{plain}
+\input{000titelSeite}
+
+\hfill \par
+\vfill
+\small
+Erzeugt am \today~ \currenttime~ Uhr \\
+Version 1.0 \\
+\currfileabspath
+% Damit der Ausgabepfad angepasst wird:
+% In der Konsole zum Pfad der .tex-Datei wechseln
+% pdflatex -recorder LaTeX.tex
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+
+\pagestyle{scrheadings}
+
+\include{Legende}
+
+\include{PhysGrund}
+
+\include{Halbleiter}
+
+\include{KombSchaltungen}
+
+\include{Anhang}
+\input{Loes3}
+
+\end{document}

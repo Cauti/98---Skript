@@ -1,0 +1,236 @@
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[abspath]{currfile}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{datetime}
+\usepackage[normalem]{ulem}
+\usepackage{framed}
+\usepackage{xcolor}
+\usepackage{fancyvrb}
+\usepackage{setspace}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage[top=2.3cm, bottom=3cm, left=2.3cm, right=2.3cm,, marginpar=1cm]{geometry}
+\usepackage{tabularx}
+\usepackage{chngcntr}
+\usepackage{newfloat}
+\usepackage{caption}
+\usepackage{marginnote}[fulladjus]
+\usepackage{mdframed}
+\usepackage{tabularx%
+			,longtable%
+			,geometry%
+			,lscape%			
+			,ifthen%
+			%,colortbl%
+			,url%
+			,xcolor
+} 
+%%% 
+%   Für klickbare Inhaltsverzeichnise etc.
+%%%
+
+\usepackage[
+  bookmarks=true,           % Lesezeichen erzeugen
+  bookmarksopen=true,
+	colorlinks=true,
+	linkcolor=black, 
+	anchorcolor=black, 
+	citecolor=black, 
+	filecolor=black, 
+	menucolor=black, 
+	pagecolor=black,
+	urlcolor=blue
+]{hyperref}
+\usepackage{scrlayer-scrpage}
+\usepackage[numbered]{bookmark}
+
+\DeclareFloatingEnvironment[fileext=frm,placement={!ht},name=Frame]{myfloat}
+
+% Damit Checkbox auf die margin gesetzt werdem kann:
+%\reversemarginpar
+%\renewcommand{\marginnotevadjust}{-.6cm}
+
+
+\newtheoremstyle{aufgaben}{}{}{}{}{\bfseries}{}{\newline}{}
+\theoremstyle{aufgaben}
+\newtheorem{Loesung}{Lösung}
+\newtheorem*{Loesung*}{Lösung}
+\newtheorem*{Ziele}{Ziele}
+
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+
+% Definiert grau als Textcolor für Hilfestellungen
+\colorlet{grau}{black!7}
+\newcommand{\grau}[1]{\textcolor{grau}{#1}}
+
+\newmdtheoremenv[%
+  backgroundcolor=black!7,
+  linecolor=blue,
+  linewidth=1pt, 
+  ]{AufgabeON}{Aufgabe}
+  
+%\newmdtheoremenv[%
+%  backgroundcolor=black!7,
+%  linecolor=blue,
+%  linewidth=1pt, 
+%  ]{aufgabe}{Aufgabe}
+
+\newcounter{Aufgabe}
+\numberwithin{Aufgabe}{chapter} 
+\newenvironment{Aufgabe}
+	{\stepcounter{Aufgabe}%
+	\mdfsetup{%
+		backgroundcolor=black!7,
+		linecolor=blue,
+		linewidth=1pt,
+		frametitle=Aufgabe~\theAufgabe%
+		\marginnote{%
+			\begin{Form}%
+			\CheckBox[width=.6cm,name=ex\theAufgabe]{~}%
+			\end{Form}%
+		}%
+	}%
+	\begin{mdframed}%
+	}%
+	{\end{mdframed}
+}
+
+  
+\newmdtheoremenv[%
+  backgroundcolor=black!7,
+  linecolor=green,
+  linewidth=1pt,
+  ]{sich}{Sicherung}
+  
+\newmdtheoremenv[%
+  backgroundcolor=black!7,
+  linecolor=red,
+  linewidth=1pt,
+  ]{ZW}{Zusatzwissen}
+  
+%\newmdtheoremenv[%
+%  backgroundcolor=black!7,
+%  linecolor=red,
+%  linewidth=1pt,
+%  ]{Zusatzaufgabe}{Zusatzaufgabe}
+  
+\newcounter{Zusatz}
+\numberwithin{Zusatz}{chapter} 
+\newenvironment{Zusatzaufgabe}
+	{\stepcounter{Zusatz}%
+	\mdfsetup{%
+ 		backgroundcolor=black!7,
+		linecolor=red,
+		linewidth=1pt,
+		frametitle=Zusatzaufgabe~\theZusatz%
+		\marginnote{%
+			\begin{Form}%
+			\CheckBox[width=.6cm,name=ex\theZusatz]{~}%
+			\end{Form}%
+		}%
+	}%
+	\begin{mdframed}%
+	}%
+	{\end{mdframed}
+}
+  
+\newmdtheoremenv[%
+  backgroundcolor=black!7,
+  linecolor=black,
+  linewidth=1pt,
+  ]{Bsp}{Beispiel}
+  
+%\newenvironment{Aufgabe}{
+%	\begin{aufgabe}
+%		\marginnote{
+%			\begin{Form}
+%   				 \CheckBox[width=.6cm]{~}
+%			\end{Form}
+%		}
+%	}{\end{aufgabe}}
+    
+%Nummer des Theorems \code ausblenden 
+%\renewcommand{\thecode}{\relax}  
+\renewcommand{\thesich}{\relax}
+\renewcommand{\theZW}{\relax}
+\renewcommand{\theAufgabeON}{\relax}  
+\renewcommand{\theBsp}{\relax}   
+\numberwithin{figure}{chapter}
+%\numberwithin{Zusatzaufgabe}{Aufgabe}
+%\numberwithin{Loesung}{absolute}
+
+
+\definecolor{dunkel}{rgb}{0,0,0}
+\definecolor{hell}{rgb}{1,1,1}
+\newcommand{\dunkel}[1]{\textcolor{dunkel}{#1}}
+\newcommand{\dunkelbf}[1]{\textbf{\dunkel{#1}}}
+
+\pagestyle{scrheadings}
+
+\setheadwidth[0pt]{textwithmarginpar}
+\setheadsepline{1.0pt}
+\setfootwidth[0pt]{text}
+\setfootsepline{0.5pt}
+
+% Kopf- und Fussdefinitionen
+\clearscrheadfoot
+\newcommand{\thema}{\textcolor{blue!60!black}{\headmark}}% \scriptsize \today}
+\newcommand{\name}{\textcolor{dunkel}{\small ASGSpez {\footnotesize(J.\,Süpke)}}}
+\newcommand{\seitenzahl}{\colorbox{blue!60!black}{\makebox[2em][c]{\textcolor{white}{\thepage\ }}}}
+\newcommand{\code}[1]{\colorbox{hell}{\texttt{\small #1}}}
+\ihead{\thema}
+\ohead{\seitenzahl}
+\ofoot{\name}
+\ifoot{\dunkel{\footnotesize \,2017}}
+
+
+%% Veränderte Kapitelüberschrift
+%%
+\usepackage{lmodern}
+
+%% Kapitelüberschrift weiter nach oben
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}}
+\renewcommand*{\chapterheadendvskip}{\vspace*{4ex}}%{-\topskip}}
+
+%% Farbe
+\colorlet{chapter}{blue!60!black}
+\addtokomafont{chapter}{\color{chapter}}
+
+\makeatletter% siehe De-TeX-FAQ
+
+\newcommand*{\cdeutsch}[1]{\expandafter\@cdeutsch \csname c@#1\endcsname}
+\newcommand*{\@cdeutsch}[1]{%
+		\ifcase#1\or Eins\or Zwei\or Drei\or Vier\or Fünf\or Sechs%
+		         \or Sieben\or Acht\or Neun\or Zehn%
+		\else\@ctrerr\fi}	
+
+
+\renewcommand{\chapapp}{Kapitel}
+\renewcommand*{\chapterformat}{%
+  \begingroup% damit \unitlength-Änderung lokal bleibt
+    \setlength{\unitlength}{1mm}%
+%    \fbox{
+    \begin{picture}(20,20)(0,4)
+      \setlength{\fboxsep}{0pt}
+%      \put(0,0){\framebox(20,40){}}%
+%      \put(0,20){\makebox(20,20){\rule{20\unitlength}{20\unitlength}}}%
+      \put(22,12){\line(1,0){\dimexpr \textwidth-23\unitlength\relax\@gobble}}%   Linie
+      \put(0,0){\makebox(20,20)[r]{%
+          \fontsize{22\unitlength}{22\unitlength}\selectfont\thechapter
+          \kern .2em% Ziffer in der Zeichenzelle nach rechts schieben
+      }}%
+      \put(20,12){\makebox(\dimexpr
+          \textwidth-20\unitlength\relax\@gobble,\ht\strutbox\@gobble)[l]{%
+          \ \normalsize\color{blue!60!black}\chapapp~\cdeutsch{chapter}%
+%					\thechapter\autodot
+      }}%
+    \end{picture} % <-- Leerzeichen ist hier beabsichtigt!
+  \endgroup
+} 
+

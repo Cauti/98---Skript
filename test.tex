@@ -1,0 +1,71 @@
+%\documentclass{scrartcl}
+%\usepackage{lipsum}
+%\usepackage{color}
+%\usepackage{mdframed,tikz}
+%
+%\begin{document}
+%
+%%\begin{mdframed}[backgroundcolor=gray!7,roundcorner=8pt, outerlinewidth=1cm, outerlinecolor=red]
+%%\lipsum
+%%\end{mdframed}
+%
+%\newmdtheoremenv[%
+%outerlinewidth= 50,%
+%roundcorner= 10 pt,%
+%leftmargin= 40,%
+%rightmargin= 40,%
+%backgroundcolor=  yellow!40,%
+%outerlinecolor= red,%
+%innertopmargin=\topskip,%
+%splittopskip=\topskip,%
+%ntheorem=  true,%
+%]{theorem}{Theorem}[section]
+%\begin{theorem}[Pythagoreantheorem]
+%\lipsum
+%\end{theorem}
+%
+%\end{document}
+
+\documentclass{article}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{hyperref}
+\usepackage{marginnote}[fulladjus]
+
+\newmdtheoremenv[%
+  backgroundcolor=black!7,
+  linecolor=red,
+  linewidth=1pt,
+  ]{theorem}{Theorem}
+  
+\reversemarginpar
+\renewcommand{\marginnotevadjust}{-.2cm}
+
+\newenvironment{Aufgabe}{
+\begin{theorem}
+\marginnote{
+\begin{Form}
+    \CheckBox[width=.6cm]{~}
+\end{Form}
+}
+}{\end{theorem}}
+
+\begin{document}
+%\begin{theorem}
+%\marginnote{
+%\begin{Form}
+%    \CheckBox[width=.6cm]{~}
+%\end{Form}
+%}
+\begin{Aufgabe}
+\lipsum
+\end{Aufgabe}
+%\end{theorem}
+
+
+
+%Why does Mendel's 2$\mathrm{^{nd}}$ require viability of offspring?}
+
+
+\end{document} 
